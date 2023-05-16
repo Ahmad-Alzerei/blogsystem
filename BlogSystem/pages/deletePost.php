@@ -2,6 +2,10 @@
 session_start();
 require_once('../classes/Post.php');
 require_once('../config/database.php');
+$adminEmail = "admin@admin.com";
+if (isset($_SESSION['user_id']) && $_SESSION['email'] != $adminEmail) {
+    header('Location: home.php');
+}
 if ($_POST && isset($_POST['delete'])) {
     $post1 = new Post($pdo);
     $post1->deletePost1($_POST['id']);

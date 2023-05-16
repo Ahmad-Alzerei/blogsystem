@@ -11,6 +11,12 @@
 
 <body>
     <?php
+    session_start();
+    $adminEmail = "admin@admin.com";
+    if (isset($_SESSION['user_id']) && $_SESSION['email'] != $adminEmail) {
+        header('Location: home.php');
+    }
+
     require_once('../config/database.php');
     require_once('../classes/user.php');
     $admin1 = new User($pdo);

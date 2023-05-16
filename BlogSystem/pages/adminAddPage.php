@@ -2,9 +2,11 @@
 include('../includes/registerHeader.php');
 require_once('../classes/User.php');
 require_once('../config/database.php');
-
-
-
+session_start();
+$adminEmail = "admin@admin.com";
+if (isset($_SESSION['user_id']) && $_SESSION['email'] != $adminEmail) {
+    header('Location: home.php');
+}
 
 if ($_POST && isset($_POST['register'])) {
     $user = new User($pdo);

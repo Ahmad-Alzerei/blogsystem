@@ -18,7 +18,7 @@ if ($_POST && isset($_POST['register'])) {
     $resuilt = $user->register($username, $email, $password);
 
     if ($resuilt === true) {
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit;
     } else {
         $errors = $resuilt;
@@ -41,8 +41,8 @@ if ($_POST && isset($_POST['register'])) {
         <input type="text" name="username" required placeholder="Enter your username" class="Sin1" required>
         <input type="email" name="email" required placeholder="enter your email" class="Sin2" required>
         <input type="password" name="password" required placeholder="enter your password" class="Sin2" required>
-        <input type="submit" name="register" class="form-btn">
-        <p>do you have an account? <a href="index.php">login now</a></p>
+        <input type="submit" name="register" value="register" class="form-btn">
+        <p>do you have an account? <a href="../index.php">login now</a></p>
         <div class="container">
             <?php if (isset($errors)) : ?>
                 <div class=" alert alert-danger">
